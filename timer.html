@@ -1,0 +1,116 @@
+<html>
+
+<head>
+
+<title> TIMER</title>
+<style type="text/css">
+body{
+	background: black;
+}
+.countdownContainer{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%)translateY(-50%) ; 
+	text-align: center;
+	
+	background: rgba(255,0,0,0.5);
+	border: 1px solid #999;
+	padding: 10px;
+	box-shadow: 0 0 5px 3 px #ccc;
+}
+
+.info{
+	font-size: 80px;
+	font-style: Serif;
+	color: white;
+
+}
+.design
+{
+	font-size: 30px;
+	font-style: Serif;
+	color: white;
+	font: bold;
+}
+
+</style>
+</head>
+
+
+<body>
+	<table  class="countdownContainer">
+		<TR class="info">
+			<TD colspan="4">
+				New Year Countdown
+
+			</TD>
+		</TR>
+
+		<TR class="info">
+			<td id="days">00</td>
+			<td id="hours">00</td>
+			<td id="minutes">00</td>
+			<td id="seconds">00</td>
+			
+		</TR>
+
+		<TR class="design">
+			<td>Days</td>
+			<td>Hours</td>
+			<td>Minutes</td>
+			<td>Seconds</td>
+
+
+		</TR>
+
+	 </table>
+	
+
+<script type="text/javascript">
+	function countdown()
+	{
+	//var now=new Date();
+	var eventDate=new Date("2017-01-01T00:00:00");
+
+	var currTime=Date.parse(new Date());
+	var eventTime=Date.parse(eventDate);
+	//getTime();
+
+	var remTime=eventTime-currTime;
+
+
+	var s=Math.floor((remTime/1000)%60);
+	var m=Math.floor((remTime/1000/60)%60);
+	var h=Math.floor(remTime/(1000*60*60)%24);
+	var d=Math.floor(remTime/(1000*60*60*24));
+	//var d=getDate(eventDate)-getDate(new Date());
+
+	h=h%24;
+	m%=60;
+	s%=60;
+
+	h=(h<10)?"0"+h:h;
+	m=(m<10)?"0"+m:m;
+	s=(s<10)?"0"+s:s;
+	
+	document.getElementById("days").textContent=d;
+	document.getElementById("days").innertext=d;
+
+	document.getElementById("hours").textContent=h;
+	document.getElementById("minutes").textContent=m;
+	document.getElementById("seconds").textContent=s;
+
+	setTimeout(countdown,1000)
+
+	}
+	
+	countdown();
+	
+
+
+
+</script>
+
+</body>
+</html>

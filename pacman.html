@@ -1,0 +1,131 @@
+<html>
+
+<head>
+
+	<script>
+window.onload = function(){<!-- w w  w  .  ja  va 2 s . c o m-->
+var canvas = document.getElementById("myCanvas");
+//var context = canvas.getContext("2d");
+var ctx = canvas.getContext("2d");
+
+
+ctx.beginPath();
+ctx.arc(100, 100, 50, 0.2 * Math.PI, 1.8 * Math.PI, false);
+
+// The mouth
+// A line from the end of the arc to the centre
+ctx.lineTo(100, 100);
+
+// A line from the centre of the arc to the start
+ctx.closePath();
+
+// Fill the pacman shape with yellow
+ctx.fillStyle = "yellow";
+ctx.fill();
+
+// Draw the black outline (optional)
+ctx.stroke();
+
+// Draw the eye
+ctx.beginPath();
+ctx.arc(100, 75, 10, 0, 2 * Math.PI, false);
+ctx.fillStyle = "rgb(0, 0, 0)";
+ctx.fill();
+
+
+//      x    y   rad sAng eAng antiC  line    fill
+/*drawArc(60,  150, 40, -20,   60, true, "black", " yellow");
+
+function drawArc(xPos, yPos,
+radius,
+startAngle, endAngle,
+anticlockwise,
+lineColor, fillColor)
+{
+var startAngle = startAngle * (Math.PI/180);
+var endAngle   = endAngle   * (Math.PI/180);
+
+var radius = radius;
+
+context.strokeStyle = lineColor;
+context.fillStyle   = fillColor;
+context.lineWidth   = 3;
+
+context.beginPath();
+context.arc(xPos, yPos,
+radius,
+startAngle, endAngle,
+anticlockwise);
+context.fill();
+context.stroke();
+}
+*/
+};
+</script>
+
+<title>
+Welcome to Pacman
+</title>
+
+<style type="text/css">
+.divcolor
+{
+	background-color: black;
+	width: 500px;
+	height:500px;
+	border: yellow;
+}
+.formatting
+{
+	font-style: Serif;
+	color: white;
+	font-size: 40px;
+	text-align: center;
+
+
+}
+.wrapper
+{
+	text-align: center;
+}
+.button_positon
+{
+	position: absolute;
+    width: 70px;
+    height:40px;
+    font-style:solid;
+	text-align: center;
+	margin: 0 auto;
+	border:1px solid;
+	top:70%;
+	left: 15%;
+
+}
+</style>
+
+
+
+
+
+</head>
+
+<body>
+
+<div class="divcolor">
+<p class="formatting">
+WELCOME TO PLAY PACMAN
+</p>
+
+<div class="wrapper">
+<canvas id="myCanvas" width="400" height="250" style="border:1px solid black;"></canvas>
+<form action="maze.html">
+    <button type="submit" class="button_positon">Start</button>
+</form>
+
+</div>
+
+
+</div>
+
+</body>
+</html>
